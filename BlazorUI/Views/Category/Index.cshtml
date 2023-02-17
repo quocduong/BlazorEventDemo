@@ -1,0 +1,25 @@
+﻿@using BlazorComponentUI.Components.Forms;
+@using BlazorUI.Models.Category;
+@{
+    ViewData["Title"] = "Categories Management";
+}
+
+@section Scripts
+{
+    <script src="/js/category/index.js"></script>
+}
+
+<div class="text-center">
+    <div class="row">
+        <div class="col-12">
+            <p>Click the button to check blazor component event</p>
+            <button id="CreateCategoryButton" class="btn btn-primary">Create New Category</button>
+        </div>
+    </div>
+
+    <br />
+    <p>Inject directly blazor component into view</p>
+    <div class="row">
+        @(await Html.PartialAsync("_Partials/_CreateOrEdit", new CreateOrEditCategoryModalViewModel()))
+    </div>
+</div>

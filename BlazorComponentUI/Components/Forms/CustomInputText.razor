@@ -1,0 +1,12 @@
+﻿@inherits ComponentBase
+@typeparam T
+@using Microsoft.AspNetCore.Components.Web
+
+<div class="form-group">
+    <label>@LabelText</label>
+    <input type="text" class="form-control" @onchange="OnFieldValueChanged" />
+</div>
+<br />
+<div class="form-group">
+    <span>Entered value: <b>@_value</b></span>
+</div>

@@ -1,0 +1,36 @@
+﻿@using BlazorComponentUI.Components.Forms;
+@using BlazorUI.Models.Category;
+
+@model CreateOrEditCategoryModalViewModel
+
+<div class="modal-header">
+    <h5 class="modal-title">
+        <span>Create Or Edit Category</span>
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+</div>
+
+
+<div class="modal-body">
+    <form name="NewCategoryForm" role="form" novalidate class="form-validation">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <div class="col-md-6">
+            <div class="my-3">
+                @(
+                    await Html.RenderComponentAsync<CustomInputText<string>>(RenderMode.ServerPrerendered, new
+                    {
+                        LabelText = "Category Name",
+                        Id = "CategoryName",
+                        Name = "CategoryName",
+                        Value = ""
+                    })
+                    )
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-light-primary fw-bold close-button" data-bs-dismiss="modal">Cancel</button>
+    <button type="button" class="btn btn-primary save-button"><i class="fa fa-save"></i> <span>Save</span></button>
+</div>
